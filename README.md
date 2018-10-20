@@ -1,3 +1,4 @@
-# react-redux-template
+# appointment-scheduler
 
-A boilerplate for starting a react/redux/thunk project. Basic Webpack configs included!
+## Using ReactJS, NodeJS (Express framework), webpack
+
