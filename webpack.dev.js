@@ -26,7 +26,7 @@ module.exports = merge(common, {
 	],
 	output: {
 		// webpack-dev-server will serve all files from this path:
-		publicPath: 'https://localhost:3000/',
+		publicPath: 'http://localhost:3000/',
 		filename: 'js/[name].bundle.js',
 		chunkFilename: 'js/[name].bundle.js'
 	},
@@ -35,7 +35,9 @@ module.exports = merge(common, {
 		// webpack-dev-server needs to know what path to look in for the output files
 		headers: { "Access-Control-Allow-Origin": "*" },
 		contentBase: path.resolve(__dirname, 'build'),
-		https: true,
-		port: 3000
+		// https: true, 
+		port: 3000,
+		inline: true, 
+		proxy: { "/api/*": { target: 'http://localhost:3001/', secure: false }  }
 	}
 })

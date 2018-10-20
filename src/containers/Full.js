@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import Async from '../components/Helper/Async'
-
+import Index from '../views/Index'
 class Full extends Component {
   render() {
     return (
       <div className="app">
           <main className="main">
               <Switch>
-                <Route path="/index" name="Index" render={() => <Async load={import('../views/Index')} />}/>
+                <Route path="/index" name="Index" component={Index} />
                 <Redirect from="/" to="/index"/>
               </Switch>
           </main>

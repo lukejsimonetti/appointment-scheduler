@@ -1,0 +1,47 @@
+[
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "9"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "10"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "11"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "12"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "1"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "2"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "3"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "4"
+    },
+    {
+        "durationValue": 1,
+        "durationUnit": "hours",
+        "timeSlotValue": "5"
+    }
+]
