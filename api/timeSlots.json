@@ -1,47 +1,38 @@
 [
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "9"
+        "time_slot_id": 1, 
+        "value": "09:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "10"
+        "time_slot_id": 2, 
+        "value": "10:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "11"
+        "time_slot_id": 3, 
+        "value": "11:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "12"
+        "time_slot_id": 4, 
+        "value": "12:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "1"
+        "time_slot_id": 5, 
+        "value": "01:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "2"
+        "time_slot_id": 6, 
+        "value": "02:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "3"
+        "time_slot_id": 7, 
+        "value": "03:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "4"
+        "time_slot_id": 8, 
+        "value": "04:00"
     },
     {
-        "durationValue": 1,
-        "durationUnit": "hours",
-        "timeSlotValue": "5"
+        "time_slot_id": 9, 
+        "value": "05:00"
     }
 ]
