@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 // Containers
-import Full from './containers/Full'
+import AppRoutes from './containers/AppRoutes'
 
 // redux store
 import store from './store'
@@ -12,9 +12,9 @@ import store from './store'
 ReactDOM.render((
   <Provider store={store}>
     <div>
-      <Router>
+    <Router>
         <Switch>
-          <Route path="/" name="Home" component={Full} />
+          <Route path="/" name="AppRoutes" component={AppRoutes} />
         </Switch>
       </Router>
     </div>
