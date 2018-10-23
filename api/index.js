@@ -7,7 +7,7 @@ const timeSlots = require('./timeSlots.json')
 //     res.send('Hello World!')
 // })
     
-app.get('/api/available-slots', (req, res) => {
+app.get('/api/available-time-slots', (req, res) => {
     res.send(timeSlots)
 })
 
