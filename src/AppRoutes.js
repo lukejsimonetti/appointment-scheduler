@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from 'reactstrap'
-import TimeSlotTable from '../views/TimeSlotTable'
+import TimeSlotTable from './views/TimeSlotTable'
 
 class AppRoutes extends Component {
   render() {

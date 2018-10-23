@@ -11,3 +11,12 @@ export const getAvailableTimeSlots = () => (dispatch) => {
 
     })
 }
+
+export const handleModal = (name = '') => (dispatch) => {
+    dispatch({
+       type: 'APP:HANDLE_MODAL', 
+        modal: {
+            name
+        }
+    })
+}

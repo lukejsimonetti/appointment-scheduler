@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 // Containers
-import AppRoutes from './containers/AppRoutes'
+import AppRoutes from './AppRoutes'
 
 // redux store
 import store from './store'
