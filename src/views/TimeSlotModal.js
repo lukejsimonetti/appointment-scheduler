@@ -10,7 +10,7 @@ let TimeSlotModal = props => {
     return (
         <ModalWrapper
             handleModal={props.handleModal}
-            isOpen={props.modal.name === 'TIME_SLOT_MDOAL'}
+            isOpen={props.modal.name === 'TIME_SLOT_MODAL'}
             actionButtonAction={() => props.addEvent()}
             actionButtonLabel="Save"
         >
