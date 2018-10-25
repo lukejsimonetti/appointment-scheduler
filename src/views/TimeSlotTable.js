@@ -17,11 +17,11 @@ class TimeSlotTable extends Component {
     render() {
         return (
             <Fragment>
-                <Col sm={{ size: 8, offset: 2 }} >
+                <Col sm={{ size: 5, offset: 3 }} >
                     <Table striped bordered hover condensed="true">
                         <thead>
                             <tr>
-                                <th>Available Time Slots</th>
+                                <th>Time Slots</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +42,6 @@ TimeSlotTable.propTypes = {
 }
 
 export default connect(
-    state => ({ ...state.app }),
+    state => ({ ...state.app, timeSlotModal: state.form }),
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(TimeSlotTable)

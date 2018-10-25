@@ -1,6 +1,7 @@
 const initialState = {
     modal:{
-        name: ''
+        modalName: '',
+        formData: {}
     }
 }
 

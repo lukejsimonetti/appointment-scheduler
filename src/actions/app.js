@@ -12,11 +12,22 @@ export const getAvailableTimeSlots = () => (dispatch) => {
     })
 }
 
-export const handleModal = (name = '') => (dispatch) => {
+export const handleModal = (modalName = '', formData = {}) => (dispatch) => {
     dispatch({
        type: 'APP:HANDLE_MODAL', 
         modal: {
-            name
+            modalName,
+            formData
+        }
+    })
+}
+
+export const setModalFormData = (modalName, data) => (dispatch) => {
+    dispatch({
+        type: 'APP:HANDLE_MODAL',
+        modal: {
+            modalName: modalName,
+            formData: {...data}
         }
     })
 }
