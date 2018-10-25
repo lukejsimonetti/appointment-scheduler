@@ -21,7 +21,7 @@ class TimeSlotModal extends Component {
                 handleModal={this.props.handleModal}
                 isOpen={this.props.modal.modalName === 'TIME_SLOT_MODAL'}
             >
-                <Form onSubmit={(e) => this.props.saveFormData(e)} >
+                <Form onSubmit={(e) => {e.preventDefault(), this.props.saveFormData()}} >
                     <Row>
                         <Col sm={12}>
                             <Input
@@ -44,7 +44,7 @@ class TimeSlotModal extends Component {
                     </Row>
                     <Row>
                         <Col sm={6}>
-                            <Button color="secondary" onClick={this.props.handleModal}>Cancel</Button>
+                            <Button color="secondary" onClick={() => {this.props.handleModal()}}>Cancel</Button>
                         </Col>
                         <Col sm={6}>
                             <Button color="success" type="submit" className="float-right">Submit</Button>
