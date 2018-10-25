@@ -21,7 +21,9 @@ const TimeSlotRow = (props) => {
 }
 
 TimeSlotRow.propTypes = {
-    
+    handleModal: PropTypes.func.isRequired,
+    time_slot_id: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
+    data: PropTypes.object
 }
-
 export default TimeSlotRow

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Col, Row, Form, Button } from 'reactstrap'
-
+import PropTypes from 'prop-types'
 import Input from '../components/Input'
 import ModalWrapper from '../components/ModalWrapper'
 
@@ -28,7 +27,7 @@ class TimeSlotModal extends Component {
                             <Input
                                 name="name"
                                 label="Full Name"
-                                value={this.props.modal.formData.name || ''}
+                                value={this.props.modal.formData.name || ""}
                                 onChange={(e) => this.props.updateForm(e.target.value, 'name')}
                             />
                         </Col>
@@ -38,7 +37,7 @@ class TimeSlotModal extends Component {
                             <Input
                                 name="phone"
                                 label="Phone #"
-                                value={this.props.modal.formData.phone || ''}
+                                value={this.props.modal.formData.phone || ""}
                                 onChange={(e) => this.props.updateForm(e.target.value, 'phone')}
                             />
                         </Col>
@@ -58,7 +57,14 @@ class TimeSlotModal extends Component {
 }
 
 TimeSlotModal.propTypes = {
-
-};
+    modal: PropTypes.shape({
+        modalName: PropTypes.string,
+        formData: PropTypes.object
+    }),
+    handleModal: PropTypes.func.isRequired,
+    updateForm: PropTypes.func.isRequired,
+    saveFormData: PropTypes.func.isRequired,
+    data: PropTypes.object
+}
 
 export default TimeSlotModal

@@ -1,17 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FormGroup, Input, Label } from 'reactstrap'
 
-const InputComponent = ({ ...props }) => {
+const InputComponent = ({ name, label, onChange, value }) => {
   return (
     <FormGroup>
-      <Label htmlFor={props.name}><strong>{props.label}</strong></Label>
-      <Input onChange={props.onChange} value={props.value} placeholder={props.label} />
+      <Label htmlFor={name}><strong>{label}</strong></Label>
+      <Input onChange={onChange} value={value} placeholder={label} />
     </FormGroup>
   )
 }
 
-InputComponent.defaultProps = {
-//   labelHidden: true
+InputComponent.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 }
 
 export default InputComponent
