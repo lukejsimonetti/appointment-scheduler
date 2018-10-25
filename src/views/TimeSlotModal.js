@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, Form } from 'reactstrap'
+import { Col, Row, Form, Button } from 'reactstrap'
 
 import Input from '../components/Input'
 import ModalWrapper from '../components/ModalWrapper'
@@ -21,10 +21,8 @@ class TimeSlotModal extends Component {
             <ModalWrapper
                 handleModal={this.props.handleModal}
                 isOpen={this.props.modal.modalName === 'TIME_SLOT_MODAL'}
-                actionButtonAction={() => this.props.saveFormData()}
-                actionButtonLabel="Save"
             >
-                <Form onSubmit={() => console.log('got here')} >
+                <Form onSubmit={(e) => this.props.saveFormData(e)} >
                     <Row>
                         <Col sm={12}>
                             <Input
@@ -43,6 +41,14 @@ class TimeSlotModal extends Component {
                                 value={this.props.modal.formData.phone || ''}
                                 onChange={(e) => this.props.updateForm(e.target.value, 'phone')}
                             />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={6}>
+                            <Button color="secondary" onClick={this.props.handleModal}>Cancel</Button>
+                        </Col>
+                        <Col sm={6}>
+                            <Button color="success" type="submit" className="float-right">Submit</Button>
                         </Col>
                     </Row>
                 </Form>
