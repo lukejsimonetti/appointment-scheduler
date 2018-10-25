@@ -12,12 +12,16 @@ class TimeSlotModal extends Component {
         }
     }
 
+    componentWillUnmount(){
+        this.props.setModalFormData('', null)
+    }
+
     render() {
         return (
             <ModalWrapper
                 handleModal={this.props.handleModal}
                 isOpen={this.props.modal.modalName === 'TIME_SLOT_MODAL'}
-                actionButtonAction={() => this.props.addEvent()}
+                actionButtonAction={() => this.props.saveFormData()}
                 actionButtonLabel="Save"
             >
                 <Form onSubmit={() => console.log('got here')} >

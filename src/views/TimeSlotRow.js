@@ -9,7 +9,7 @@ const TimeSlotRow = (props) => {
             <td className="text-center">{moment(props.value, "hh:mm").format("hh:mm").replace(/^0(?:0:0?)?/, '')}</td>
             <td>
                 <Button color="success"
-                    onClick={() => props.handleModal('TIME_SLOT_MODAL', props.data)}> Schedule Appointment 
+                    onClick={() => props.handleModal('TIME_SLOT_MODAL', props.data, props.time_slot_id)}> Schedule Appointment 
                 </Button>
                 </td>
         </tr>

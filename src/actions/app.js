@@ -12,13 +12,27 @@ export const getAvailableTimeSlots = () => (dispatch) => {
     })
 }
 
-export const handleModal = (modalName = '', formData = {}) => (dispatch) => {
+export const handleModal = (modalName = '', formData = {}, timeSlotId) => (dispatch) => {
     dispatch({
        type: 'APP:HANDLE_MODAL', 
         modal: {
             modalName,
+            timeSlotId,
             formData
         }
+    })
+}
+
+export const saveFormData = (formData, timeSlotId) => (dispatch, getState) => {
+    const {formData, timeSlotId} = getState().app.modal
+    axios.put('/api/time-slot', {
+        data: {formData, timeSlotId}
+    })
+    .then(res => {
+        dispatch(getAvailableTimeSlots())
+    })
+    .catch(err => {
+        console.log(err.response)
     })
 }
 
