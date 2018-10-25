@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
 import { Col, Row, Form } from 'reactstrap'
 
-import InputText from '../components/InputText'
+import Input from '../components/Input'
 import ModalWrapper from '../components/ModalWrapper'
 
 class TimeSlotModal extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.data !== this.props.data) {
-            console.log('called')
             this.props.setModalFormData('TIME_SLOT_MODAL', this.props.data)
         }
     }
@@ -26,25 +23,21 @@ class TimeSlotModal extends Component {
                 <Form onSubmit={() => console.log('got here')} >
                     <Row>
                         <Col sm={12}>
-                            <Field
+                            <Input
                                 name="name"
-                                label="Name"
-                                labelHidden={false}
-                                type="text"
-                                component={InputText}
-                            // validate={[v.required]}
+                                label="Full Name"
+                                value={this.props.modal.formData.name || ''}
+                                onChange={(e) => this.props.updateForm(e.target.value, 'name')}
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col sm={12}>
-                            <Field
+                            <Input
                                 name="phone"
                                 label="Phone #"
-                                labelHidden={false}
-                                type="text"
-                                component={InputText}
-                            // validate={[v.number]}
+                                value={this.props.modal.formData.phone || ''}
+                                onChange={(e) => this.props.updateForm(e.target.value, 'phone')}
                             />
                         </Col>
                     </Row>
@@ -57,18 +50,5 @@ class TimeSlotModal extends Component {
 TimeSlotModal.propTypes = {
 
 };
-
-TimeSlotModal = reduxForm({
-    form: 'timeSlotModal',
-    destroyOnUnmount: true,
-})(TimeSlotModal)
-
-TimeSlotModal = connect(
-    state => (console.log(state.app.modal.formData, 'after'),{
-      initialValues: {
-          name: state.app.modal.formData.name
-      }
-    })
-  )(TimeSlotModal)
 
 export default TimeSlotModal

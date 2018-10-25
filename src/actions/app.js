@@ -31,3 +31,11 @@ export const setModalFormData = (modalName, data) => (dispatch) => {
         }
     })
 }
+
+export const updateForm = (value, elementName) => (dispatch) => {
+    dispatch({
+        type: 'APP:UPDATE_FORM_STATE',
+        key: elementName,
+        val: value
+    })
+}

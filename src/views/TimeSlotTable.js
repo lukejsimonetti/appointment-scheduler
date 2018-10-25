@@ -42,6 +42,6 @@ TimeSlotTable.propTypes = {
 }
 
 export default connect(
-    state => ({ ...state.app, timeSlotModal: state.form }),
+    state => ({ ...state.app }),
     dispatch => bindActionCreators(actionCreators, dispatch)
 )(TimeSlotTable)

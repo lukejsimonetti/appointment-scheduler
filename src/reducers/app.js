@@ -1,7 +1,10 @@
 const initialState = {
     modal:{
         modalName: '',
-        formData: {}
+        formData: {
+            name: '',
+            phone: ''
+        }
     }
 }
 
@@ -16,6 +19,16 @@ const app = (state = initialState, action) => {
             ...state,
             modal: {
                 ...action.modal,
+            }
+        }
+        case 'APP:UPDATE_FORM_STATE': return {
+            ...state,
+            modal: {
+                ...state.modal,
+                formData:{
+                    ...state.modal.formData,
+                    [action.key]: action.val
+                }
             }
         }
 
