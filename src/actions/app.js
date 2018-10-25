@@ -23,8 +23,7 @@ export const handleModal = (modalName = '', formData = {}, timeSlotId) => (dispa
     })
 }
 
-export const saveFormData = (e) => (dispatch, getState) => {
-    e.preventDefault()
+export const saveFormData = () => (dispatch, getState) => {
     const {formData, timeSlotId} = getState().app.modal
     axios.put('/api/time-slot', {
         data: {formData, timeSlotId}
