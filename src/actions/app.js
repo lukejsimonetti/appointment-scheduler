@@ -23,13 +23,15 @@ export const handleModal = (modalName = '', formData = {}, timeSlotId) => (dispa
     })
 }
 
-export const saveFormData = (formData, timeSlotId) => (dispatch, getState) => {
+export const saveFormData = (e) => (dispatch, getState) => {
+    e.preventDefault()
     const {formData, timeSlotId} = getState().app.modal
     axios.put('/api/time-slot', {
         data: {formData, timeSlotId}
     })
     .then(res => {
         dispatch(getAvailableTimeSlots())
+        dispatch(handleModal())
     })
     .catch(err => {
         console.log(err.response)
