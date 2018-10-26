@@ -1,51 +1,60 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import moxios from 'moxios'
-import getOrganizationContactsMock from '../mocks/getOrganizationContactsMock'
+import mockTimeSlotData from './mockTimeSlotData.json'
 import {
-    getAvailableTimeSlots
+    getAvailableTimeSlots,
+    setData,
+    saveFormData,
+    handleModal,
+    setModalFormData,
+    updateForm,
+    SET_DATA,
+    HANDLE_MODAL,
+    UPDATE_FORM_STATE
 } from '../app'
 
 const middleware = [thunk]
 const mockStore = configureMockStore(middleware)
 
-describe('contactListModal success async actions', () => {
-
+describe('app success async actions', () => {
     let store
 
     beforeEach(() => {
         moxios.install()
         store = mockStore({
-            modal:{
-                modalName: '',
-                formData: {}
+            app: {
+                modal: {
+                    modalName: '',
+                    formData: {}
+                }
             }
         })
     })
-    
+
     afterEach(() => {
         moxios.uninstall()
     })
 
-    test('getOrganizationContacts should dispatch \'setState\' on success', () => {
+    test('getAvailableTimeSlots should dispatch \'setData\' on success', () => {
         moxios.wait(() => {
             const request = moxios.requests.mostRecent()
             request.respondWith({
                 status: 200,
-                response: getOrganizationContactsMock
+                response: mockTimeSlotData
             })
         })
 
         const expectedActions = [
-            setState('list_data', getAvailableTimeSlots)
+            setData('availableTimeSlots', mockTimeSlotData)
         ]
 
-        return store.dispatch(getOrganizationContacts(24)).then(() => {
+        return store.dispatch(getAvailableTimeSlots()).then(() => {
             expect(store.getActions()).toEqual(expectedActions)
         })
     })
 
-    test('putContact should dispatch \'handleModeChange\' on success', () => {
+    test('saveFormData should dispatch \'handleModal\' on success', () => {
         moxios.wait(() => {
             const request = moxios.requests.mostRecent()
             request.respondWith({
@@ -54,42 +63,59 @@ describe('contactListModal success async actions', () => {
         })
 
         const expectedActions = [
-            handleModeChange('LIST')
+            handleModal()
         ]
 
-        return store.dispatch(putContact(1, getOrganizationContactsMock[0])).then(() => {
+        return store.dispatch(saveFormData()).then(() => {
             expect(store.getActions()).toEqual(expectedActions)
         })
     })
 })
 
-// describe('contactListModal actions', () => {
+describe('app actions', () => {
 
-//     test('should create an action to set the state', () => {
-//         const key = 'foo'
-//         const val = 'bar'
-//         const expectedAction = {
-//             type: SET_STATE,
-//             key,
-//             val
-//         }
-//         expect(setState(key, val)).toEqual(expectedAction)
-//     })
+    test('should create an action to set the state', () => {
+        const key = 'foo'
+        const val = 'bar'
+        const expectedAction = {
+            type: SET_DATA,
+            key,
+            val
+        }
+        expect(setData(key, val)).toEqual(expectedAction)
+    })
 
-//     test('should create an action to toggle the modal', () => {
-//         const expectedAction = {
-//             type: TOGGLE_MODAL
-//         }
-//         expect(toggleModal()).toEqual(expectedAction)
-//     })
+    test('should create an action to update form state', () => {
+        const key = 'foo'
+        const val = 'bar'
+        const expectedAction = {
+            type: UPDATE_FORM_STATE,
+            key,
+            val
+        }
+        expect(updateForm(val, key)).toEqual(expectedAction)
+    })
 
-//     test('should create an action to handle mode change', () => {
-//         const val = 'foo'
-//         const expectedAction = {
-//             type: SET_STATE,
-//             key: 'mode',
-//             val
-//         }
-//         expect(handleModeChange(val)).toEqual(expectedAction)
-//     })
-// })
+    test('should create an action to toggle the modal', () => {
+        const expectedAction = {
+            type: HANDLE_MODAL,
+            modal: {
+                formData: {},
+                modalName: '',
+                timeSlotId: undefined
+            }
+        }
+        expect(handleModal()).toEqual(expectedAction)
+    })
+
+    test('should create an action to handle mode change', () => {
+        const expectedAction = {
+            type: HANDLE_MODAL,
+            modal: {
+                modalName: undefined,
+                formData: {}
+            }
+        }
+        expect(setModalFormData()).toEqual(expectedAction)
+    })
+})
