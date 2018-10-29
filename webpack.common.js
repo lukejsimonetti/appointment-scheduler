@@ -12,7 +12,7 @@ const path = require('path')
 const fs = require('fs-extra')
 
 // creates an absolute path to the build directory
-const buildPath = 	path.resolve(__dirname, '../', 'web', 'build')
+const buildPath = 	path.resolve(__dirname, 'build')
 const publicPath = 	path.resolve(__dirname, 'public')
 const srcPath = 	path.resolve(__dirname, 'src')
 
